@@ -1,7 +1,7 @@
 import '@/css/globals.css'
 import type {Metadata} from 'next'
-import {Navbar} from "@/Components/Navbar";
-import AppContext from "@/Context/AppContext";
+import {Navbar} from "@/components/Navbar";
+import AppContext from "@/context/AppContext";
 
 
 export default function RootLayout({children}: { children: React.ReactNode }) {

@@ -1,7 +1,5 @@
-import React, {ReactNode} from "react";
+import React from "react";
 import type {Metadata} from 'next'
-
-import ModulePage from "@/Components/ModulePage";
 
 export const metadata: Metadata = {
     title: 'Create Next sssApp',
