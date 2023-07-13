@@ -7,6 +7,7 @@ import {faExclamationTriangle, faSearch, faSpinner} from "@fortawesome/free-soli
 import axios from "axios";
 import {ModulesInterface} from "@/Interfaces/ModulesInterface";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import Link from "next/link";
 
 export const Navbar = () => {
     const [query, setQuery] = useState(String)
@@ -68,12 +69,12 @@ export const Navbar = () => {
     // @ts-ignore
     return <div className={'h-32 p-2 w-full fixed top-0 bg-black z-40 group'}>
         <div className={'container mx-auto flex justify-between items-center'}>
-            <a href={'/'} className={'w-3/12 select-none cursor-pointer px-4 py-2 rounded shadow'}>
+            <Link href={'/'} className={'w-3/12 select-none cursor-pointer px-4 py-2 rounded shadow'}>
                 <h5 className={'font-black text-5xl'}>
                     toolk.ist
                 </h5>
                 <small className={'-mt-1.5 block'}>speedy tools</small>
-            </a>
+            </Link>
             <div className={'transition-all duration-300 w-4/12 focus-within:w-8/12 flex items-center justify-end'}>
                 <a className={'w-2/12'}>Browse</a>
                 <Input placeholder={loaded ? 'Search here...' : 'Loading modules...'}
@@ -104,7 +105,7 @@ export const Navbar = () => {
                             {categoryModules.map(module => {
                                 // @ts-ignore
                                 return <div key={module.id} className={'text-sm'}>
-                                    <a href={'#'} className={'hover:font-bold'}>{module.title}</a>
+                                    <Link href={'/ext/'+module.slug} className={'hover:font-bold'}>{module.title}</Link>
                                 </div>
                             })}
                         </div>

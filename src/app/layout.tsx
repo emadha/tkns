@@ -15,7 +15,8 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
             <body className={''}>
             <Navbar/>
             <div className={'container mx-auto mt-32'}>
-                {children}ss
+                Main Layout
+                {children}
             </div>
             </body>
             </html>
