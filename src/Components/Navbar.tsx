@@ -10,7 +10,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 export const Navbar = () => {
 
-    const [query, setQuery] = useState('')
+    const [query, setQuery] = useState(String)
 
     const [modulesList, setModulesList] = useState({})
     const [filteredModules, setFilteredModules] = useState({})

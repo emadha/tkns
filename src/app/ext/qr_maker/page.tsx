@@ -1,3 +1,3 @@
-export default(function (){
-   return <>ok</>
-});
+export default function QrMaker() {
+    return <>ok</>
+}
