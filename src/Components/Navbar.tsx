@@ -1,7 +1,7 @@
 "use client"
 
-import {ThemeSwitcher} from "@/Components/ThemeSwitcher";
-import {Input} from "@/Components/Form/Input";
+import {ThemeSwitcher} from "@/components/ThemeSwitcher";
+import {Input} from "@/components/Form/Input";
 import React, {useEffect, useState} from "react";
 import {faExclamationTriangle, faSearch, faSpinner} from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
@@ -9,7 +9,6 @@ import {ModulesInterface} from "@/Interfaces/ModulesInterface";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 export const Navbar = () => {
-
     const [query, setQuery] = useState(String)
 
     const [modulesList, setModulesList] = useState({})

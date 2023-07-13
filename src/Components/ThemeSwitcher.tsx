@@ -1,7 +1,7 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSun} from "@fortawesome/free-solid-svg-icons";
 import {useContext} from "react";
-import {AppContextContainer} from "@/Context/AppContext";
+import {AppContextContainer} from "@/context/AppContext";
 import {WrapperFnInterface} from "@/Interfaces/WrapperFnInterface";
 
 export const ThemeSwitcher = () => {
