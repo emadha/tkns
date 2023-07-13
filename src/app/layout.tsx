@@ -15,8 +15,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
             <body className={''}>
             <Navbar/>
             <div className={'container mx-auto mt-32'}>
-                <h1>{metadata.title?.toString()}</h1>
-                {children}
+                {children}ss
             </div>
             </body>
             </html>

@@ -1,3 +1,8 @@
+import ModulePage from "@/components/ModulePage";
+
 export default function QrMaker() {
-    return <>ok</>
+    return <ModulePage
+            title={'QR Code Maker'}>
+        okssss
+    </ModulePage>
 }
