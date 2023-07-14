@@ -1,8 +1,14 @@
 import React from "react";
-
+import {metadata} from "@/app/dash/page";
+import {getStaticInfoIncludingLayouts} from "next/dist/build/entries";
+export async function getStaticProps() {
+    return { props: { title: 'HomePsssage' } }
+}
 export default function Layout({children}: { children: React.ReactNode }) {
+
     return <>
-        Ext Layout
+        <h1>
+        </h1>
         {children}
     </>
 }

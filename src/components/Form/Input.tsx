@@ -1,22 +1,7 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {IconProp} from "@fortawesome/fontawesome-svg-core";
 import React, {KeyboardEventHandler} from "react";
-
-interface Input {
-    className?: undefined | string,
-    id?: string,
-    name?: string,
-    type?: string,
-    label?: string,
-    icon?: string,
-    clearable?: boolean,
-    placeholder?: string,
-    leftIcon?: IconProp,
-    leftIconSpin?: boolean,
-    defaultValue?: string,
-    onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined
-    onKeyDown?: KeyboardEventHandler<HTMLInputElement> | undefined
-}
+import {InputInterface} from "@/Interfaces/InputInterface";
 
 export const Input = ({
                           className,
@@ -32,7 +17,9 @@ export const Input = ({
                           leftIcon,
                           onChange,
                           onKeyDown,
-                      }: Input) => {
+                          onBlur,
+                          onFocus,
+                      }: InputInterface) => {
     return <div className={'relative group ' +
         (className ? ' ' + className : '')}>
         {leftIcon && <FontAwesomeIcon
@@ -52,5 +39,7 @@ export const Input = ({
             placeholder={placeholder}
             onChange={onChange}
             onKeyDown={onKeyDown}
+            onBlur={onBlur}
+            onFocus={onFocus}
         /></div>
 }

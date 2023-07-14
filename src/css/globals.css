@@ -16,3 +16,10 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
     @apply text-5xl;
 }
+
+textarea {
+    @apply w-full
+    p-2 rounded
+    border border-lime-600
+    dark:bg-neutral-800
+}

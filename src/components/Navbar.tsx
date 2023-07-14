@@ -12,6 +12,7 @@ import Link from "next/link";
 export const Navbar = () => {
     const [query, setQuery] = useState(String)
 
+    const [searchOpen, setSearchOpen] = useState(false)
     const [modulesList, setModulesList] = useState({})
     const [filteredModules, setFilteredModules] = useState({})
     const [loaded, setLoaded] = useState(false)
@@ -41,6 +42,13 @@ export const Navbar = () => {
     }, []);
 
     useEffect(() => {
+        if (!query?.length) {
+            setSearchOpen(false)
+            return;
+        } else {
+            setSearchOpen(true)
+        }
+
         filterModules(query);
     }, [query])
 
@@ -67,7 +75,7 @@ export const Navbar = () => {
     }
 
     // @ts-ignore
-    return <div className={'h-32 p-2 w-full fixed top-0 bg-black z-40 group'}>
+    return <div className={'h-32 p-2 w-full fixed top-0 bg-black z-40'}>
         <div className={'container mx-auto flex justify-between items-center'}>
             <Link href={'/'} className={'w-3/12 select-none cursor-pointer px-4 py-2 rounded shadow'}>
                 <h5 className={'font-black text-5xl'}>
@@ -83,6 +91,8 @@ export const Navbar = () => {
                        leftIconSpin={!loaded}
                        onChange={searchModules}
                        defaultValue={query}
+                       onBlur={e => setSearchOpen(false)}
+                       onFocus={e => query && setSearchOpen(true)}
                        onKeyDown={searchKeyDown}
                 />
             </div>
@@ -93,7 +103,8 @@ export const Navbar = () => {
         <div tabIndex={1}
              className={'container z-0 scale-y-0 duration-[700ms] -mt-96 opacity-0 transition-all mx-auto ' +
                  'bg-indigo-900 p-10 rounded-xl shadow overflow-auto max-h-[calc(100vh-200px)] ' +
-                 'group-focus-within:scale-y-100 group-focus-within:mt-10 group-focus-within:opacity-100'}
+                 (searchOpen ? 'scale-y-100 mt-10 opacity-100' : '')
+             }
              style={{scrollbarWidth: 'thin'}}>
             <div className={'flex flex-wrap'}>
                 {filteredModules && Object.entries(filteredModules).length ? Object.entries(filteredModules).map((filtered: Array<any>) => {
@@ -105,7 +116,8 @@ export const Navbar = () => {
                             {categoryModules.map(module => {
                                 // @ts-ignore
                                 return <div key={module.id} className={'text-sm'}>
-                                    <Link href={'/ext/'+module.slug} className={'hover:font-bold'}>{module.title}</Link>
+                                    <Link href={'/ext/' + module.slug}
+                                          className={'hover:font-bold'}>{module.title}</Link>
                                 </div>
                             })}
                         </div>

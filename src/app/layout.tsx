@@ -5,6 +5,7 @@ import AppContext from "@/context/AppContext";
 
 
 export default function RootLayout({children}: { children: React.ReactNode }) {
+
     const metadata: Metadata = {
         title: 'Test',
     };
@@ -15,7 +16,6 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
             <body className={''}>
             <Navbar/>
             <div className={'container mx-auto mt-32'}>
-                Main Layout
                 {children}
             </div>
             </body>
